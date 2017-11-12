@@ -20,6 +20,7 @@ USER="$([ "${BUILDNUMBER}" -ge "7321" ] && echo -n ${SC_USER} || echo -n ${LEGAC
 start_daemon ()
 {
     export HOME=${INSTALL_DIR}/var
+    ulimit -n 4096
     start-stop-daemon -S -q -m -b -N 10 -x screen -c ${USER} -u ${USER} -p ${PID_FILE} -- -D -m ${RTORRENT}
 }
 

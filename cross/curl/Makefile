@@ -5,7 +5,7 @@ PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://curl.haxx.se/download
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-DEPENDS = cross/zlib cross/openssl
+DEPENDS = cross/c-ares cross/zlib cross/openssl
 
 HOMEPAGE = http://curl.haxx.se
 COMMENT  = Command line tool and library for transferring data with URLs
@@ -16,7 +16,7 @@ GNU_CONFIGURE = 1
 CONFIGURE_TARGET = myConfigure
 POST_INSTALL_TARGET = myPostInstall
 
-CONFIGURE_ARGS = --enable-ipv6 --with-ca-bundle=$(INSTALL_PREFIX)/cert.pem
+CONFIGURE_ARGS = --enable-ares --enable-ipv6 --with-ca-bundle=$(INSTALL_PREFIX)/cert.pem
 
 include ../../mk/spksrc.cross-cc.mk
 
