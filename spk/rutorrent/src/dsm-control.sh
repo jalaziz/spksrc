@@ -7,15 +7,10 @@ DNAME="ruTorrent"
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:${INSTALL_DIR}/usr/bin:${PATH}"
-BUILDNUMBER="$(/bin/get_key_value /etc.defaults/VERSION buildnumber)"
+USER="rutorrent"
 RTORRENT="${INSTALL_DIR}/bin/rtorrent"
 PID_FILE="${INSTALL_DIR}/var/rtorrent.pid"
 LOG_FILE="${INSTALL_DIR}/var/rtorrent.log"
-
-SC_USER="sc-rutorrent"
-LEGACY_USER="rutorrent"
-USER="$([ "${BUILDNUMBER}" -ge "7321" ] && echo -n ${SC_USER} || echo -n ${LEGACY_USER})"
-
 
 start_daemon ()
 {
